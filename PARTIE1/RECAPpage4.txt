@@ -1,0 +1,24 @@
+select count(*) from Sportifs;
+
+select IdSportif, nom,prenom, count(*) as "ont un conseiller"  from Sportifs where "IdSportConseiller" is not null;
+
+select DISTINCT Ville from Gymnases;
+
+select IdGymnase, Round(AVG(Surface),2)  from Gymnases;
+
+select Round(AVG(Age),2) as age_moyenne, min(Age),max(Age)  from Sportifs;
+
+SELECT Ville,
+        MIN(Surface) AS "Surface mini",
+        MAX(surface) AS "Surface maxi"
+    FROM Gymnases
+    GROUP BY Ville;
+
+SELECT Ville, COUNT(*) AS "Nb Gymnases"
+    FROM Gymnases
+    GROUP BY Ville
+    HAVING COUNT(*) >= 5
+    ORDER BY 2 DESC;
+
+
+

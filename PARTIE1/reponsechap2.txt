@@ -1,0 +1,26 @@
+moi : 
+
+Select Nocom,PrixUnit, Remise, Qte, ROUND(PrixUnit*Remise, 2) AS "le montant de la remise", ROUND(PrixUnit-ROUND(PrixUnit*Remise), 2) AS "le montant à payer pour ce produit"  FROM DetailCommande WHERE Nocom = 10251;
+
+corrigé :
+
+SELECT PrixUnit, Qte, Remise, ROUND(PrixUnit*Qte*Remise, 2) AS Montant_Remise, ROUND(PrixUnit*Qte) AS Prix_total, ROUND(PrixUnit*(1-Remise)*Qte, 2) AS Prix_TotalAvecRemise
+FROM DETAILCOMMANDE
+WHERE Nocom = 10251;
+
+select Adresse, Adresse|| " " ||Ville|| " " ||CodePostal|| " " ||Pays AS "Adresse complete" from Client;
+
+select CodeCli, SUBSTR(CodeCli, LENGTH(CodeCli)-1) FROM Client;
+
+select Societe, LOWER(Societe) FROM Client;
+
+select CodeCli, Societe, Contact, Fonction, REPLACE(Fonction, "marketing", "mercatique") AS Changement FROM Client;
+
+select CodeCli, Fonction FROM Client WHERE Fonction LIKE '%Chef%';
+
+
+
+
+
+
+

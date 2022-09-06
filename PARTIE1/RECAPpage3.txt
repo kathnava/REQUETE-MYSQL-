@@ -1,0 +1,48 @@
+
+Afficher en heure la durée de chaque séance (stockée en minute dans la table)
+Select  IdSport , IdSportifEntraineur ,Duree/60 as heure from Seances;
+
+???
+
+Concaténer le nom des sportifs avec la première lettre du prénom suivie d'un point, le tout en minuscules (par exemple "jollois f.")
+SELECT  Nom || " " || SUBSTR(Prenom, 1, 1) || "." as INITIAL
+    FROM Sportifs;
+
+Afficher les gymnases situées sur une place (cf Adresse)
+SELECT NomGymnase ,Adresse,
+        INSTR(Adresse, "Place") AS "Adresse contient Place"
+    FROM Gymnases;
+
+SELECT DATE("now");
+
+Donner le jour de la semaine du 1er janvier de l'année de naissance de chaque sportif
+
+select Nom, Prenom,
+STRFTIME("%Y","now") - Age AS "Année de naissance",
+????
+FROM Sportifs;
+
+Afficher une nouvelle variable nommée Civilite, qui prendra "M." pour les hommes et "Mme" pour les femmes
+select nom, Sexe, 
+  case Sexe 
+     When "M" Then " Monsieur"
+     When "m" Then " Monsieur"
+     When "F" then " Madame"
+  End as Civilité
+From Sportifs;
+
+
+Afficher une nouvelle variable TypeGymnase, qui prendra comme valeur "petit" si la surface est inférieure strictement à 400 m2, "moyen" si elle est entre 400 et 550 m2, et "grand" si elle est strictement supérieure à 550 m2
+select NomGymnase, Surface, 
+  case  
+     When Surface <= 400 Then " petit"
+     When Surface between 400 and 550 then " moyen"
+     When Surface >= 550 then " grand"
+  End as TypeGymnase
+From Gymnases;
+
+
+
+
+
+

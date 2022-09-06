@@ -1,0 +1,22 @@
+Compter pour chaque produit, le nombre de commandes où il apparaît, même pour ceux dans aucune commande
+
+select nomprod, count(nocom)
+from produit left outer join detailcommande
+on produit.refprod=detailcommande.refprod
+group by nomprod;
+
+Lister les produits n'apparaissant dans aucune commande
+
+SELECT Produit.*
+    FROM Produit LEFT OUTER JOIN detailCommande
+        USING (refprod)
+    GROUP BY refprod
+    HAVING COUNT(Nocom) == 0;
+
+Existe-t'il un employé n'ayant enregistré aucune commande
+
+SELECT Nom, Prenom
+    FROM Employe LEFT OUTER JOIN Commande
+        ON Employe.NoEmp = Commande.NoEmp
+    GROUP BY Nom, Prenom
+    HAVING COUNT(DISTINCT NoCom) = 0;

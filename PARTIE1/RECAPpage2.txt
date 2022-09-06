@@ -1,0 +1,37 @@
+Lister le contenu de la table Seance
+Select * from Seances;
+
+Lister les sportifs par ordre croissant d'âge
+Select nom,Age from Sportifs order by Age DESC;
+
+Lister les 5 gymnases les plus grands
+Select idGymnase,NomGymnase ,Surface from Gymnases group by Surface LIMIT 5;
+
+Lister les sportifs (nom et prénom) agés strictement de plus de 30 ans
+Select nom,prenom ,age from sportifs where Age >=30;
+
+Lister les gymnases de la ville de "STAINS"
+Select NomGymnase,adresse, ville from Gymnases where Ville="STAINS";
+
+Lister les sportifs n'ayant pas de conseiller
+Select IdSportif,Nom,IdSportifConseiller As "pas de conseiller"  from Sportifs where IdSportifConseiller is null;
+
+Lister les sports pratiqués (uniquement le libellé de chaque sport)
+Select Libelle from sports;
+
+Lister les différentes valeurs de Sexe possible
+Select  Sexe from Sportifs group by Sexe;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

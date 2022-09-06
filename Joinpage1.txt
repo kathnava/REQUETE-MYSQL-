@@ -1,0 +1,19 @@
+Récupérer les informations des fournisseurs pour chaque produit
+
+SELECT RefProd, NomProd, NoFour
+    FROM Produit NATURAL JOIN Fournisseur;
+
+Afficher les informations des commandes du client "Lazy K Kountry Store"
+
+SELECT NoCom, CodeCli, societe
+    FROM Commande NATURAL JOIN Client where societe="Lazy K Kountry Store";
+
+Afficher le nombre de commande pour chaque messager (en indiquant son nom)
+
+SELECT NoMess, NomMess, count(*) as "nb de commande"
+    FROM Messager NATURAL JOIN Commande
+    group by NomMess;
+
+
+
+

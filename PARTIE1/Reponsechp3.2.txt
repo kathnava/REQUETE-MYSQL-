@@ -1,0 +1,39 @@
+select count(*) from Employe where Fonction = " Representant(e)";
+select count(*) from produit Where PrixUnit < 50;
+select count(*) from produit where CodeCateg=2 and UnitesStock > 10;
+select count(*) from produit where CodeCateg=1 and NoFour in (1,18);
+select count(DISTINCT pays) from 
+select count(*) from Commande Where DateCom="2016-03-28";
+select ROUND(AVG(port),2) From Commande where CodeCli = " QUICK";
+select MIN(Port), MAX(Port) from Commande;
+ou
+SELECT MIN(CAST(Port AS FLOAT)) AS PortMinimum,
+        MAX(CAST(Port AS FLOAT)) AS PortMaximum
+    FROM Commande;
+
+select sum(port)as"Montant total des frais de port",NoMess form commande where NoMess=1
+union
+select sum(port)as"Montant total des frais de port",NoMess from commande where NoMESS=2
+union 
+select sum(port)as"Montant total des frais de port", NoMess from commande Where NoMess=3
+order by NoMess;
+
+ou encore
+
+select sum(port)as "montant total des frais de port",NoMess
+from commande
+where NoMess = 1
+union
+select sum(port)as "montant total des frais de port",NoMess
+from commande
+where NoMess = 2
+and port >3000
+union
+select sum(port) as "montant total des frais de port",NoMess
+from commande
+where NoMess = 3
+order by NoMess ;
+
+
+
+

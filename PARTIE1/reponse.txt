@@ -1,0 +1,40 @@
+select * from Produit;
+select * from Produit LIMIT 10;
+select * from Produit ORDER BY PrixUnit;
+select * from Produit ORDER BY PrixUnit DESC LIMIT 3;
+
+page 3
+
+select * from Client WHERE ville="Paris" AND pays="France";
+
+select * from Client WHERE pays IN ('Suisse', 'Allemagne','Belgique'); 
+ou
+select * from Client WHERE pays="France" OR pays="Allemagne" OR pays="Belgique";
+
+select * from Client WHERE Fax IS NULL;
+
+select * from Client WHERE Societe LIKE '%restaurant%';
+
+Page 4
+
+select Description from Categorie;
+select Pays from Client;
+select Pays, Ville from Client ORDER BY Pays, Ville;
+
+Page 5
+
+select * from Produit WHERE QteParUnit LIKE '%bouteilles%' OR QteParUnit LIKE '%canettes%';
+select Societe,Contact,Ville from Fournisseur WHERE Pays="France" ORDER BY Fonction DESC, Ville;
+select UPPER(Nomprod) AS NOMDEPROD,Refprod from Produit WHERE Nofour="8" AND PrixUnit BETWEEN 10 AND 100;
+select NoEmp from Commande WHERE PaysLiv IN ('France', 'Lille','Lyon','Nantes');
+OU
+select NoEmp, PaysLiv, VilleLiv from Commande WHERE PaysLiv="France" AND VilleLiv="Lille" AND VilleLiv ="Lyon" OR VilleLiv="Nantes";
+select * from Produit WHERE Nomprod LIKE '%tofu%' OR Nomprod LIKE '%choco%' AND  PrixUnit <= 100; !!!! 
+SELECT NomProd AS Produit, PrixUnit as Prix
+    FROM Produit
+    WHERE (NomProd LIKE "%tofu%" OR NomProd LIKE "%choco%")
+    AND PrixUnit < 100;
+
+
+
+

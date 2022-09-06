@@ -1,0 +1,48 @@
+Calculer pour chaque commande le jour de la semaine, le numéro de semaine dans l'année et le mois
+
+SELECT DATE("Datecom"),
+        STRFTIME("%d", "DateCom") as "Jour",
+         STRFTIME("%m", "DateCom") as "Mois",
+        STRFTIME("%W", "DateCom") as "Semaine dans l'année"
+        FROM Commande;
+
+
+SELECT ("DateCom"),
+        STRFTIME("%d", "DateCom") AS "jourDimanche"  FROM Commande WHERE jourDimanche="01";
+
+corrigé 
+SELECT DATE("DateCom") AS Date_Cde,
+
+STRFTIME("%w", "DateCom") as "Jour"
+FROM Commande
+
+WHERE "Jour" BETWEEN "1" and "5";
+
+ou encore
+
+[11:23] hello.nath14 (Invité)
+SELECT DATE("DateCom") AS Date_Cde,
+CASE
+WHEN STRFTIME("%w", "DateCom") = "1" THEN "Lundi"
+WHEN STRFTIME("%w", "DateCom") = "2" THEN "Mardi"
+WHEN STRFTIME("%w", "DateCom") = "3" THEN "Mercre"
+WHEN STRFTIME("%w", "DateCom") = "4" THEN "Jeudi"
+WHEN STRFTIME("%w", "DateCom") = "5" THEN "Vendre"
+WHEN STRFTIME("%w", "DateCom") = "6" THEN "Samedi"
+ELSE "Dimanche"
+END AS JOUR
+FROM Commande;
+
+
+
+
+SELECT NoCom,DateCom, ALivAvant,STRFTIME ("%d","DateCom")-STRFTIME("%d", "ALivAvant" ) AS DIFFTIME FROM Commande;
+
+SELECT MIN(CAST(Port AS FLOAT)) AS PortMinimum,
+        MAX(CAST(Port AS FLOAT)) AS PortMaximum
+    FROM Commande;
+
+
+
+
+

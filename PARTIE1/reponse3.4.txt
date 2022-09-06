@@ -1,0 +1,30 @@
+Lister les fournisseurs ne fournissant qu'un seul produit
+
+SELECT Refprod, Count(*) as nb
+    FROM Produit
+    GROUP BY NoFour
+    HAVING Nb = 1;
+
+
+Lister les catégories dont les prix sont en moyenne supérieurs strictement à 150 euros
+
+SELECT CodeCateg, Nomprod, Round(avg(PrixUnit),2) as moyenne
+    FROM Produit
+    GROUP BY CodeCateg
+    HAVING moyenne > 150;
+
+Lister les fournisseurs ne fournissant qu'une seule catégorie de produits
+
+SELECT CodeCateg, count(*) as NB
+    From Produit
+    GROUP BY CodeCateg
+    HAVING NB = 1;
+
+Lister les fonctions pour lesquelles la moyenne d'âge des employés dépasse les 45 ans
+
+select Nom, Prenom,
+STRFTIME("%Y","now") AS ANNEE_COURANTE,
+SUBSTR(DateNaissance,6,4) AS DATE_NAISS,
+STRFTIME("%Y","now") - SUBSTR(DateNaissance,6,4) AS AGE
+FROM Employe
+Where AGE > 45;

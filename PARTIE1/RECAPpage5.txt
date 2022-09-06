@@ -1,0 +1,22 @@
+SELECT *
+    FROM Sportifs where Sexe="M"
+    ORDER BY Age DESC
+    LIMIT 5;
+
+Select Ville, surface from Gymnases where Surface > 500;
+
+SELECT Nom || " " || SUBSTR(Prenom, 1, 1) || "." || " - " ||(2022-Age) as "Nom-Prenom-age" from Sportifs ;
+
+SELECT IdSport, count(*) as "nb" from Jouer Group by IdSport ;
+
+SELECT CASE
+            WHEN Age <= 24 THEN "junior"
+            WHEN Age <= 30 THEN "senior 1"
+            WHEN Age <= 45 THEN "senior 2"
+        END AS "Catégorie",
+        COUNT(*) AS "Nb Sportifs"
+    FROM Sportifs
+    group by Catégorie;
+
+
+

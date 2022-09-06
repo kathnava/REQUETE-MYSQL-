@@ -1,0 +1,15 @@
+SELECT NoEmp,Fonction, COUNT(*)
+    FROM Employe
+    GROUP By Fonction;
+
+SELECT NoMess, ROUND(AVG(Port), 2) as "Moyen du port"
+    FROM Commande
+    group by NoMess;
+
+SELECT NoFour, CodeCateg, COUNT(*)
+    FROM Produit
+    GROUP By NoFour, CodeCateg;
+
+SELECT NoFour,Refprod, CodeCateg, ROUND(AVG(PrixUnit), 2) as "Moyen des produits"
+    FROM Produit
+    group by NoFour, Refprod, CodeCateg ;

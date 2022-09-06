@@ -1,0 +1,21 @@
+Donner la quantité totale commandée par les clients, pour chaque produit
+
+select  Qte, count(*) as "qte totale"
+FROM DetailCommande
+group by Refprod;
+
+Donner les cinq clients avec le plus de commandes, triés par ordre décroissant
+
+select  CodeCli,NoCom, count(*) as "NB"
+FROM Commande
+group by NoCom
+order by 3 DESC
+Limit 5;   !!!
+
+Calculer le montant total des lignes d'achats de chaque commande, sans et avec remise sur les produits
+
+SELECT PrixUnit, Qte, Remise, ROUND(PrixUnit*Qte*Remise, 2) AS Montant_Remise, ROUND(PrixUnit*Qte) AS Prix_totalSansRemise, ROUND(PrixUnit*(1-Remise)*Qte, 2) AS Prix_TotalAvecRemise
+FROM DETAILCOMMANDE;
+
+
+

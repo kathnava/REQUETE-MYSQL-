@@ -1,0 +1,25 @@
+Récupérer les informations des fournisseurs pour chaque produit, avec une jointure interne
+
+SELECT *
+    FROM Produit INNER JOIN Fournisseur
+        ON Produit.NoFour = Fournisseur.NoFour;
+
+Afficher les informations des commandes du client "Lazy K Kountry Store", avec une jointure interne
+
+SELECT *
+    FROM Commande INNER JOIN Client
+        ON Commande.CodeCli = Client.Codecli
+    WHERE Societe = "Lazy K Kountry Store";
+
+Afficher le nombre de commande pour chaque messager (en indiquant son nom), avec une jointure interne
+
+SELECT NomMess, COUNT(*)
+    FROM Commande INNER JOIN Messager
+        ON Commande.NoMess = Messager.NoMess
+    GROUP BY NomMess;
+
+Afficher pour chaque employé le nom et le prénom de son responsable
+
+SELECT NoEmp, Nom, prenom
+    FROM Employe INNER JOIN Employe_l
+    On Employe.NoEmp=Employe_l.NoEmp; ???? 

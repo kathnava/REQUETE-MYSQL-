@@ -1,0 +1,16 @@
+SELECT Nom, prenom, substr(Prenom, 1, 3) AS prenom FROM Employe
+where Nom like 'd%';
+
+select Nom, Prenom,
+STRFTIME("%Y","now") AS ANNEE_COURANTE,
+SUBSTR(DateEmbauche,6,4) AS DATE_EMBAUCHE,
+STRFTIME("%Y","now") - SUBSTR(DateEmbauche,6,4) AS DUREE
+FROM Employe;
+
+SELECT COUNT(*) AS "nbr"
+FROM employe
+WHERE STRFTIME("%Y","now") - SUBSTR(DateEmbauche,6,4) < 10
+
+
+
+

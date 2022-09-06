@@ -1,0 +1,12 @@
+SELECT Fonction,COUNT(*) as NB 
+    FROM Employe
+ group by Fonction;
+
+select NoMess, round(avg(port),2) as Montant_Moyen
+from Commande
+group by NoMess;
+
+sELECT NoFour,
+COUNT(DISTINCT CodeCateg)
+FROM Produit
+Group by NoFour;
